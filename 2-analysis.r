@@ -1,13 +1,16 @@
 library(bingd)
 
+library(GenomicRanges)
+library(bingdviz)
+
 # Create GWAS object ------------------------------------------------------
+
 gwas.df <- read.csv("data/pgc-scz-hg19.csv.gz")
 
 
 gwas.obj <- as.GWAS(gwas.df, genome = "hg19", 
                     marker="snp", chr="chr", bp="bp", 
                     pvalue="pval", or="or")
-
 
 
 # Identify features -------------------------------------------------------
@@ -65,4 +68,14 @@ summary(gwas.annot)
 
 # Try with and without verbose = TRUE
 gwas.probs <- calc.bayes(gwas.annot, risk.thresh = 1e-5, adjust = 2.79)
+
+
+# Regions of interest -----------------------------------------------------
+locus <- GRanges("chr7", IRanges(104e6, 106e6))
+
+region.plot(gwas.probs, range = locus)
+
+region.plot(gwas.probs, range = locus, y = "log.pvalue", y.axis = "-log10 p-value")
+
+
 
