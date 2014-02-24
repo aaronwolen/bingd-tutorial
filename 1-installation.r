@@ -16,4 +16,4 @@ install_github("bingd", "aaronwolen",
                auth_user = gh.username, 
                password = gh.password)
 
-# data url: http://bit.ly/bingd-data
+# data url: http://bit.ly/bingd-files
