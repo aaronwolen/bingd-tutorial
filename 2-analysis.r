@@ -17,6 +17,7 @@ gwas.obj <- as.GWAS(gwas.df, genome = "hg19",
 
 # FeatureList for Conservation from local file
 cons.query <- list(Conservation = "phastcon")
+
 cons.list <- local.features(cons.query, path = "data")
 
 # FeatureList for DNaseI data from AnnotationHub
@@ -67,7 +68,9 @@ gwas.annot <- consolidate(gwas.annot)
 summary(gwas.annot)
 
 # Try with and without verbose = TRUE
-gwas.probs <- calc.bayes(gwas.annot, risk.thresh = 1e-5, adjust = 2.79)
+gwas.probs <- calc.bayes(gwas.annot, risk.thresh = 1e-5, adjust = 2.79,
+                         verbose = TRUE)
+
 
 
 # Regions of interest -----------------------------------------------------
