@@ -118,5 +118,6 @@ calc.conditionals(gwas.cons, risk.thresh = 1e-5, adjust = 2.79)
 
 # 1. using rstudio and devtools
 # 2. submitting changes via github pull requests
-
+# 3. adding tests
+# 4. documenting changes
 
